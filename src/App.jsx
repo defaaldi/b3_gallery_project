@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import { Colombia1} from './components/Colombia1';
+import { Colombia2} from './components/Colombia2';
+import { Colombia3} from './components/Colombia3';
+import { Colombia4} from './components/Colombia4';
+import { Colombia5} from './components/Colombia5';
+import { Colombia6} from './components/Colombia6';
+import { Navigation } from './components/Navigation';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
+    <BrowserRouter>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className='text-center my-3'>Gallery Project</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className='container d-flex justify-content-center'>
+        <Routes>
+          <Route path='/colombia1' element={<Colombia1 className='main-img-container'/>} />
+          <Route path='/colombia2' element={<Colombia2 className='main-img-container'/>} />
+          <Route path='/colombia3' element={<Colombia3 className='main-img-container'/>} />
+          <Route path='/colombia4' element={<Colombia4 className='main-img-container'/>} />
+          <Route path='/colombia5' element={<Colombia5 className='main-img-container'/>} />
+          <Route path='/colombia6' element={<Colombia6 className='main-img-container'/>} />
+        </Routes>
+        </div>
+        <div className='container'>
+          <Navigation />
+        </div>
+     </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
 export default App
